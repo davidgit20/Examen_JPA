@@ -1,0 +1,84 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@page import="java.util.*"%>
+    <%@page import="modelos.TblProducto"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Productos</title>
+</head>
+<body>
+<h1 align="center">Registros de productos</h1>
+	<form action="ControladorProducto" method="post">
+		<table>
+			<tr>
+				<td>nombres</td>
+				<td><input type="text" name="nombres"></td>
+			</tr>
+			<tr>
+				<td>precio venta</td>
+				<td><input type="text" name="venta"></td>
+			</tr>
+			<tr>
+				<td>precio com</td>
+				<td><input type="text" name="com"></td>
+			</tr>
+			<tr>
+				<td>estado</td>
+				<td><input type="text" name="estado"></td>
+			</tr>
+			<tr>
+				<td>descripcion</td>
+				<td><input type="text" name="descrip"></td>
+			</tr>
+			<tr>
+				<td><input type="submit" value="Registrar"></td>
+			</tr>
+		</table>
+	</form>
+	<br>
+	<hr>
+	<br>
+	<%
+		String men = (String)request.getAttribute("mensaje");
+		String mensaje = "";
+		if(men != null) men = mensaje;
+	%>
+	<h1 align="center"><%=mensaje %></h1>
+	
+	<h1 align="center">Listado de productos</h1>
+	<table>
+		<tr>
+			<th>Codigo</th>
+			<th>nombre</th>
+			<th>precio venta</th>
+			<th>precio com</th>
+			<th>estado</th>
+			<th>descripción</th>
+		</tr>
+		<%
+		List<TblProducto> listadoProducto = (List<TblProducto>)request.getAttribute("milista");
+		if(listadoProducto != null)
+		{
+			for(TblProducto lis:listadoProducto)
+			{
+				%>
+				<tr>
+					<td><%=lis.getNombre()%></td>
+					<td><%=lis.getPrecioVenta() %></td>
+					<td><%=lis.getPrecioCom() %></td>
+					<td><%=lis.getEstado() %></td>
+					<td><%=lis.getDescrip() %></td>
+				</tr>
+				<%
+			}
+		}
+		%>
+																																																																	
+	</table>
+	
+	
+	
+</body>
+</html>

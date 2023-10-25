@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="javax.persistence.EntityManagerFactory"/>
+<fullyQualifiedTypeName name="javax.persistence.Persistence"/>
+<fullyQualifiedTypeName name="javax.persistence.EntityManager"/>
+<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+<fullyQualifiedTypeName name="Interfaces.IntUsuariable"/>
+<fullyQualifiedTypeName name="modelos.TblUsuario"/>
+<fullyQualifiedTypeName name="Interfaces.IntProductiable"/>
+<fullyQualifiedTypeName name="java.lang.Double"/>
+<fullyQualifiedTypeName name="DAO.ClassCrudProductolmp"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="modelos.TblProducto"/>
+<fullyQualifiedTypeName name="org.checkerframework.common.util.report.qual.ReportUnqualified"/>
+<fullyQualifiedTypeName name="org.omg.CORBA.Request"/>
+</qualifiedTypeNameHistroy>

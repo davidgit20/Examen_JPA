@@ -1,0 +1,38 @@
+package DAO;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import Interfaces.IntProductiable;
+import modelos.TblProducto;
+
+public class ClassCrudProductolmp implements IntProductiable{
+
+	@Override
+	public void registrarProducto(TblProducto tblpro) {
+		// TODO Auto-generated method stub
+		EntityManagerFactory conex = Persistence.createEntityManagerFactory("examen_CL2");
+		EntityManager emanager = conex.createEntityManager();
+		emanager.getTransaction().begin();
+		emanager.persist(tblpro);
+		System.out.println("Datos registrados correctamente");
+		emanager.getTransaction().commit();
+		emanager.close();
+	}
+
+	@Override
+	public List<TblProducto> milista() {
+		// TODO Auto-generated method stub
+		EntityManagerFactory conex = Persistence.createEntityManagerFactory("examen_CL2");
+		EntityManager emanager = conex.createEntityManager();
+		emanager.getTransaction().begin();
+		List<TblProducto> milista = emanager.createQuery("select a from TblProducto",TblProducto.class).getResultList();
+		emanager.getTransaction().commit();
+		emanager.close();
+		return milista;
+	}
+
+}

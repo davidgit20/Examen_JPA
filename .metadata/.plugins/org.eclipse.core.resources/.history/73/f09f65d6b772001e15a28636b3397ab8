@@ -1,0 +1,32 @@
+package TestEntidades;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.swing.JOptionPane;
+
+import modelos.TblUsuario;
+
+public class testGeneral {
+	public static void main(String[] args) {
+		EntityManagerFactory conex = Persistence.createEntityManagerFactory("examen_CL2");
+		EntityManager emanager = conex.createEntityManager();
+		emanager.getTransaction().begin();
+		TblUsuario tbl = new TblUsuario();
+		
+		String accion = JOptionPane.showInputDialog("ingrese accion");
+		switch (accion) {
+		case "registrar":
+			tbl.setUsuario("david");
+			tbl.setPassword("123456");
+			emanager.persist(tbl);
+			System.out.println("registrado correctamente");
+			emanager.getTransaction().commit();
+			emanager.close();
+			break;
+
+		default:
+			System.out.println("accion incorrecta");
+		}
+	}
+}
